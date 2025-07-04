@@ -76,6 +76,7 @@ void matmul_multi_core(
     // From tt_metal/common/constants.hpp
     auto num_output_tiles_total = (M * N) / TILE_HW;
 
+    printf("numcores_x = %d, numcores_y= %d\n", num_cores_x, num_cores_y);
     /*
      * Use a helper function to deduce the splits needed to co-operatively do
      * this matmul.

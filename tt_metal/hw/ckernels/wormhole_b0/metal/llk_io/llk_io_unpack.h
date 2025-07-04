@@ -72,6 +72,14 @@ inline void llk_pop_tiles(
     }
 }
 
+inline void llk_set_read_ptr(const std::int32_t operand, const std::int32_t operand2, const std::int32_t offset) {
+    std::uint32_t input = operand;
+    std::uint32_t input2 = operand2;
+    // std::uint32_t offset_cast = offset;
+    std::uint32_t read_ptr = get_local_cb_interface(input).fifo_rd_ptr;
+    get_local_cb_interface(input).fifo_rd_ptr = get_local_cb_interface(input2).fifo_rd_ptr + offset;
+}
+
 inline void llk_wait_blocks(int operand, std::int32_t num_blocks) { llk_wait_tiles(operand, num_blocks); }
 
 // FIXME-WH-UPLIFT
